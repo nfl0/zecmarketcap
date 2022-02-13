@@ -29,13 +29,28 @@ export default function MainTable({ data }: MainTableProps) {
         isNumeric: true,
       },
       {
-        Header: "% 24h",
-        accessor: "percentChange24h",
+        Header: "% 1h (USD)",
+        accessor: "percentChange1hUSD",
+        // Cell: (s) => (
+        //   <span className={s.value > 0 ? "GreenColor" : "RedColor"}>
+        //     {s.value}
+        //   </span>
+        // ),
         isNumeric: true,
       },
       {
-        Header: "% 1h",
-        accessor: "percentChange1h",
+        Header: "% 24h (USD)",
+        accessor: "percentChange24hUSD",
+        isNumeric: true,
+      },
+      {
+        Header: "% 1h (ZEC)",
+        accessor: "percentChange1hZEC",
+        isNumeric: true,
+      },
+      {
+        Header: "% 24h (ZEC)",
+        accessor: "percentChange24hZEC",
         isNumeric: true,
       },
     ],

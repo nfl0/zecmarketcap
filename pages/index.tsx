@@ -17,8 +17,8 @@ const parseData = (data: any, limit: number) => {
         name: d.name,
         priceUSD: roundTo(d.quote.USD.price, 2),
         priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2),
-        percentChange24h: roundTo(d.quote.USD.percent_change_24h, 2),
-        percentChange1h: roundTo(d.quote.USD.percent_change_1h, 2),
+        percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
+        percentChange24hUSD: roundTo(d.quote.USD.percent_change_24h, 2),
       });
       tempObject[d.name] = {
         priceUSD: roundTo(d.quote.USD.price, 2),
@@ -26,27 +26,32 @@ const parseData = (data: any, limit: number) => {
     }
   });
 
-  // const zcashPrice = zcashData.quote.USD.price
-  // console.log(zcashData);
   data.slice(0, limit).map((d, index) => {
     tempObject[d.name] = {
       priceUSD: roundTo(d.quote.USD.price, 2),
     };
+
     temp.push({
       id: index + 1,
       name: d.name,
       priceUSD: roundTo(d.quote.USD.price, 2),
       priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2),
-      // 24h %
-      percentChange24h: roundTo(d.quote.USD.percent_change_24h, 2),
-      percentChange1h: roundTo(d.quote.USD.percent_change_1h, 2),
-      // 7d %
+      percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
+      percentChange1hZEC: roundTo(
+        d.quote.USD.percent_change_1h / temp[0].percentChange1hUSD,
+        2
+      ),
+      percentChange24hUSD: roundTo(d.quote.USD.percent_change_24h, 2),
+      percentChange24hZEC: roundTo(
+        d.quote.USD.percent_change_24h / temp[0].percentChange24hUSD,
+        2
+      ),
       // market Cap
       // Volume
       // Circulating Supply
     });
   });
-  console.log(tempObject);
+  // console.log(tempObject);
   return [temp, tempObject];
 };
 

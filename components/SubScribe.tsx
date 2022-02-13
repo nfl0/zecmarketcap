@@ -25,10 +25,14 @@ export default function SplitWithImage() {
             here so you don&apos;t miss a single newssletter.
           </Text>
           <HStack display="flex">
-            <FormControl>
-              <Input placeholder="Your email" />
-            </FormControl>
-            <Button colorScheme={"orange"}>Submit</Button>
+            <form>
+              <FormControl>
+                <Input placeholder="Your email" />
+              </FormControl>
+              <Button type="submit" mt={4} colorScheme={"orange"}>
+                Submit
+              </Button>
+            </form>
           </HStack>
         </Stack>
         <Flex>

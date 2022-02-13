@@ -52,34 +52,40 @@ interface MainTableProps {
 
 export default function Converter({ tempObject }: MainTableProps) {
   const [amount, setAmount] = useState<any>(1);
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("USD");
+  const [fromCurrency, setFromCurrency] = useState("Zcash");
+  const [toCurrency, setToCurrency] = useState("USD");
 
   const [error, setError] = useState(false);
 
-  function convertPrice(amount: number, from, to) {
-    let fromUSD = 1;
-    let toUSD = 1;
-    if (from === "USD") fromUSD = 1;
+  function convertPrice(amount: number, fromCurrency, toCurrency) {
+    let fromCurrencyUSD = 1;
+    let toCurrencyUSD = 1;
+    if (fromCurrency === "USD") fromCurrencyUSD = 1;
     else {
-      fromUSD = tempObject[from]["priceUSD"];
+      fromCurrencyUSD = tempObject[fromCurrency]["priceUSD"];
     }
-    if (to === "USD") toUSD = 1;
+    if (toCurrency === "USD") toCurrencyUSD = 1;
     else {
-      toUSD = tempObject[to]["priceUSD"];
+      toCurrencyUSD = tempObject[toCurrency]["priceUSD"];
     }
 
-    return (amount * fromUSD) / toUSD;
+    return (amount * fromCurrencyUSD) / toCurrencyUSD;
   }
 
-  function FromHandleChange(e) {
-    setFrom(e.target.value);
-    console.log(from);
+  function fromCurrencyHandleChange(e) {
+    setFromCurrency(e.target.value);
+    console.log(fromCurrency);
   }
 
-  function ToHandleChange(e) {
-    setTo(e.target.value);
-    console.log(from);
+  function toCurrencyHandleChange(e) {
+    setToCurrency(e.target.value);
+    console.log(fromCurrency);
+  }
+
+  function handleButtonClick() {
+    let temp = fromCurrency;
+    setFromCurrency(toCurrency);
+    setToCurrency(temp);
   }
   return (
     <Flex
@@ -118,7 +124,7 @@ export default function Converter({ tempObject }: MainTableProps) {
 
           <FormControl w={{ base: "100%" }}>
             <FormLabel htmlFor="to">From</FormLabel>
-            <Select onChange={FromHandleChange} value={from}>
+            <Select onChange={fromCurrencyHandleChange} value={fromCurrency}>
               <option value="USD">🇺🇸 USD - US Dollar</option>
               <option value="Bitcoin">Bitcoin</option>
               <option value="Ethereum">Ethereum</option>
@@ -131,13 +137,13 @@ export default function Converter({ tempObject }: MainTableProps) {
           <FormControl w={{ base: "10%" }}>
             <div style={{ height: "37px", width: "1px" }} />
             <ConvertButton label={"convert"}>
-              <RepeatIcon color="blue.500" />
+              <RepeatIcon color="blue.500" onClick={handleButtonClick} />
             </ConvertButton>
           </FormControl>
 
           <FormControl w={{ base: "100%" }}>
             <FormLabel htmlFor="to">To</FormLabel>
-            <Select onChange={ToHandleChange} value={to}>
+            <Select onChange={toCurrencyHandleChange} value={toCurrency}>
               <option value="USD">🇺🇸 USD - US Dollar</option>
               <option value="Bitcoin">Bitcoin</option>
               <option value="Ethereum">Ethereum</option>
@@ -148,7 +154,8 @@ export default function Converter({ tempObject }: MainTableProps) {
           </FormControl>
         </Stack>
         <Text mt={2}>
-          {amount} {from} = {convertPrice(amount, from, to)} {to}
+          {amount} {fromCurrency} ={" "}
+          {convertPrice(amount, fromCurrency, toCurrency)} {toCurrency}
         </Text>
         <Text
           mt={2}

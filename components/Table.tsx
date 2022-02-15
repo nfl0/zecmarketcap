@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import { chakra, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSortBy, useTable } from "react-table";
 
 interface MainTableProps {
@@ -28,21 +28,17 @@ export default function MainTable({ data }: MainTableProps) {
         accessor: "priceZcash",
         isNumeric: true,
       },
-      {
-        Header: "% 1h (USD)",
-        accessor: "percentChange1hUSD",
-        // Cell: (s) => (
-        //   <span className={s.value > 0 ? "GreenColor" : "RedColor"}>
-        //     {s.value}
-        //   </span>
-        // ),
-        isNumeric: true,
-      },
-      {
-        Header: "% 24h (USD)",
-        accessor: "percentChange24hUSD",
-        isNumeric: true,
-      },
+      // {
+      //   Header: "% 1h (USD)",
+      //   accessor: "percentChange1hUSD",
+
+      //   isNumeric: true,
+      // },
+      // {
+      //   Header: "% 24h (USD)",
+      //   accessor: "percentChange24hUSD",
+      //   isNumeric: true,
+      // },
       {
         Header: "% 1h (ZEC)",
         accessor: "percentChange1hZEC",
@@ -51,6 +47,11 @@ export default function MainTable({ data }: MainTableProps) {
       {
         Header: "% 24h (ZEC)",
         accessor: "percentChange24hZEC",
+        isNumeric: true,
+      },
+      {
+        Header: "market cap",
+        accessor: "marketCap",
         isNumeric: true,
       },
     ],

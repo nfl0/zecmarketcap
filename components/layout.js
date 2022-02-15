@@ -5,8 +5,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Zecmarketcap</title>
-        {/* add icon <link rel="icon" href="ref.ico" /> */}
+        <title>ZECMarketCap</title>
+        add icon <link rel="icon" href="zcashIcon.png" />
       </Head>
       <AppBar />
       {children}

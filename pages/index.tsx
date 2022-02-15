@@ -19,6 +19,9 @@ const parseData = (data: any, limit: number) => {
         priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2),
         percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
         percentChange24hUSD: roundTo(d.quote.USD.percent_change_24h, 2),
+        percentChange1hZEC: 1,
+        percentChange24hZEC: 1,
+        marketCap: roundTo(d.quote.USD.market_cap, 2),
       });
       tempObject[d.name] = {
         priceUSD: roundTo(d.quote.USD.price, 2),
@@ -47,6 +50,8 @@ const parseData = (data: any, limit: number) => {
         2
       ),
       // market Cap
+      marketCap: roundTo(d.quote.USD.market_cap, 2),
+
       // Volume
       // Circulating Supply
     });

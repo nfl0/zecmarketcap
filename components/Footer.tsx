@@ -59,40 +59,34 @@ export default function LargeWithLogoLeft() {
                 height="28"
               />
               <Text marginLeft="4" fontSize={"md"}>
-                ZecMarketCap
+                ZECMarketCap
               </Text>
             </Flex>
             <Text fontSize={"sm"}>
-              © 2022 ZecMarketCap. All rights reserved
+              © 2022 ZECMarketCap. All rights reserved
             </Text>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Product</ListHeader>
-            <Link href={"#"}>Overview</Link>
-            <Link href={"#"}>Features</Link>
-            <Link href={"#"}>Pricing</Link>
-            <Link href={"#"}>Releases</Link>
-          </Stack>
-          <Stack align={"flex-start"}>
-            <ListHeader>Company</ListHeader>
-            <Link href={"#"}>About</Link>
-            <Link href={"#"}>Careers</Link>
-            <Link href={"#"}>Contact</Link>
-            <Link href={"#"}>Partners</Link>
-          </Stack>
-          <Stack align={"flex-start"}>
-            <ListHeader>Support</ListHeader>
-            <Link href={"#"}>Help Center</Link>
-            <Link href={"#"}>Terms of Service</Link>
-            <Link href={"#"}>Legal</Link>
-            <Link href={"#"}>Privacy Policy</Link>
+            <ListHeader>Join Us</ListHeader>
+            <Link href={"https://discord.gg/w7vBKFq5"}>Discord</Link>
+            <Link href={"https://twitter.com/zcashug?lang=en"}>Twitter</Link>
+            <Link href={"https://zecpages.com/zcashu"}>Donate</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
-            <Link href={"#"}>Twitter</Link>
-            <Link href={"#"}>Dribbble</Link>
-            <Link href={"#"}>Instagram</Link>
-            <Link href={"#"}>LinkedIn</Link>
+            <Link href={"#"}>About</Link>
+            <Link href={"#"}>Careers</Link>
+            <Link href={"#"}>Contact</Link>
+            <Link href={"#"}>Forums</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Others</ListHeader>
+            <Link href={"https://www.zecwallet.co/app.html"}>Zecwallet</Link>
+            <Link href={"https://zecpages.com/z/all"}>ZECpages</Link>
+            <Link href={"https://www.bonfire.com/store/zcashu/"}>
+              Zcash Gear
+            </Link>
+            <Link href={"#"}>Privacy Policy</Link>
           </Stack>
         </SimpleGrid>
       </Container>

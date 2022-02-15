@@ -6,7 +6,6 @@ import {
 } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Collapse,
   Flex,
   Icon,
@@ -70,28 +69,9 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"orange.300"}
-            href={"#"}
-            _hover={{
-              bg: "red.300",
-            }}
-          >
-            Sign Up
-          </Button>
+          <Link href="http://ZcashU.org" isexternal="true">
+            ZcashU.org
+          </Link>
         </Stack>
       </Flex>
 

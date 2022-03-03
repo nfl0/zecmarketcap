@@ -69,9 +69,9 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          <Link href="http://ZcashU.org" isexternal="true">
+          {/* <Link href="http://ZcashU.org" isexternal="true">
             ZcashU.org
-          </Link>
+          </Link> */}
         </Stack>
       </Flex>
 

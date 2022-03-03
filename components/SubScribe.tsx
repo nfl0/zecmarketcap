@@ -22,12 +22,12 @@ export default function SplitWithImage() {
           <Text fontSize={"2xl"}>Be the first to know about Zcash</Text>
           <Text color={"gray.500"} fontSize={"lg"}>
             Get crypto analysis, news and updates right to your inbox! Sign up
-            here so you don&apos;t miss a single newssletter.
+            here so you don&apos;t miss a single newsletter.
           </Text>
           <HStack display="flex">
             <form>
               <FormControl>
-                <Input placeholder="Your email" />
+                <Input placeholder="Your z-address" />
               </FormControl>
               <Button type="submit" mt={4} colorScheme={"orange"}>
                 Submit

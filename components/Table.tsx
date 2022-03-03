@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import { chakra, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useSortBy, useTable } from "react-table";
 
 interface MainTableProps {
@@ -19,13 +19,13 @@ export default function MainTable({ data }: MainTableProps) {
         accessor: "name",
       },
       {
-        Header: "price (USD)",
-        accessor: "priceUSD",
+        Header: "price (Zcash)",
+        accessor: "priceZcash",
         isNumeric: true,
       },
       {
-        Header: "price (Zcash)",
-        accessor: "priceZcash",
+        Header: "price (USD)",
+        accessor: "priceUSD",
         isNumeric: true,
       },
       // {
@@ -50,10 +50,15 @@ export default function MainTable({ data }: MainTableProps) {
         isNumeric: true,
       },
       {
-        Header: "market cap",
-        accessor: "marketCap",
+        Header: "market cap (ZEC)",
+        accessor: "marketCapZEC",
         isNumeric: true,
       },
+      // {
+      //   Header: "market cap",
+      //   accessor: "marketCap",
+      //   isNumeric: true,
+      // },
     ],
     []
   );

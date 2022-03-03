@@ -1,6 +1,5 @@
 import { roundTo } from "round-to";
 import Converter from "../components/Converter";
-import Subscribe from "../components/Subscribe";
 import MainTable from "../components/Table";
 
 const parseData = (data: any, limit: number) => {
@@ -15,13 +14,16 @@ const parseData = (data: any, limit: number) => {
       temp.push({
         id: 0,
         name: d.name,
-        priceUSD: roundTo(d.quote.USD.price, 2),
-        priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2),
+        priceUSD: roundTo(d.quote.USD.price, 2).toLocaleString(),
+        priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2).toLocaleString(),
         percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
         percentChange24hUSD: roundTo(d.quote.USD.percent_change_24h, 2),
         percentChange1hZEC: 1,
         percentChange24hZEC: 1,
-        marketCap: roundTo(d.quote.USD.market_cap, 2),
+        marketCapZEC: roundTo(
+          d.quote.USD.market_cap / zcashPrice,
+          2
+        ).toLocaleString(),
       });
       tempObject[d.name] = {
         priceUSD: roundTo(d.quote.USD.price, 2),
@@ -37,8 +39,8 @@ const parseData = (data: any, limit: number) => {
     temp.push({
       id: index + 1,
       name: d.name,
-      priceUSD: roundTo(d.quote.USD.price, 2),
-      priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2),
+      priceUSD: roundTo(d.quote.USD.price, 2).toLocaleString(),
+      priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2).toLocaleString(),
       percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
       percentChange1hZEC: roundTo(
         d.quote.USD.percent_change_1h / temp[0].percentChange1hUSD,
@@ -50,7 +52,10 @@ const parseData = (data: any, limit: number) => {
         2
       ),
       // market Cap
-      marketCap: roundTo(d.quote.USD.market_cap, 2),
+      marketCapZEC: roundTo(
+        d.quote.USD.market_cap / zcashPrice,
+        2
+      ).toLocaleString(),
 
       // Volume
       // Circulating Supply
@@ -69,7 +74,7 @@ export default function Home({ cryptosData, tempObject }) {
         <div>
           <Converter tempObject={tempObject} />
           <MainTable data={cryptosData} />
-          <Subscribe />
+          {/* <Subscribe /> */}
         </div>
       )}
     </div>
@@ -88,7 +93,7 @@ export const getServerSideProps = async () => {
     const json = await res.json();
     const data = json.data;
 
-    const [cryptosData, tempObject] = parseData(data, 20);
+    const [cryptosData, tempObject] = parseData(data, 40);
     return {
       props: { cryptosData, tempObject },
     };

@@ -68,16 +68,26 @@ export default function LargeWithLogoLeft() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Join Us</ListHeader>
-            <Link href={"https://discord.gg/w7vBKFq5"}>Discord</Link>
+            <Link href={"https://discord.gg/aBNyfhWQ74"}>Discord</Link>
             <Link href={"https://twitter.com/zcashug?lang=en"}>Twitter</Link>
             <Link href={"https://zecpages.com/zcashu"}>Donate</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
-            <Link href={"#"}>About</Link>
-            <Link href={"#"}>Careers</Link>
-            <Link href={"#"}>Contact</Link>
-            <Link href={"#"}>Forums</Link>
+            <Link
+              href={"https://hackmd.io/@MDZNyyyhQH-3u6jZmLYQlQ/r1isXiaeq#about"}
+            >
+              About
+            </Link>
+            <Link
+              href={
+                "https://hackmd.io/@MDZNyyyhQH-3u6jZmLYQlQ/r1isXiaeq#careers"
+              }
+            >
+              Careers
+            </Link>
+            <Link href={"https://www.z2z.to/ZcashU"}>Contact</Link>
+            <Link href={"http://zecforum.com/"}>Forums</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Others</ListHeader>
@@ -86,7 +96,8 @@ export default function LargeWithLogoLeft() {
             <Link href={"https://www.bonfire.com/store/zcashu/"}>
               Zcash Gear
             </Link>
-            <Link href={"#"}>Privacy Policy</Link>
+            <Link href="http://ZcashU.org">ZcashU.org</Link>
+            {/* <Link href={"#"}>Privacy Policy</Link> */}
           </Stack>
         </SimpleGrid>
       </Container>

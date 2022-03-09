@@ -77,6 +77,7 @@ export default function Home({ cryptosData, tempObject }) {
 }
 
 export const getServerSideProps = async () => {
+  console.log("SSR HAPPENING");
   const url =
     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
 

@@ -1,7 +1,7 @@
 import { roundTo } from "round-to";
 import Converter from "../components/Converter";
+import { d, t } from "../components/mockData";
 import MainTable from "../components/Table";
-
 const parseData = (data: any, limit: number) => {
   let temp = [];
   let tempObject = {};
@@ -65,39 +65,37 @@ const parseData = (data: any, limit: number) => {
   return [temp, tempObject];
 };
 
-export default function Home({ cryptosData, tempObject }) {
-  // zcash id = 1437, rank= = 67 as of feb 2
-
+// export default function Home({ cryptosData, tempObject }) {
+export default function Home() {
   return (
     <div style={{ backgroundColor: "#ffffff" }}>
-      {tempObject && <Converter tempObject={tempObject} />}
-      {cryptosData && <MainTable data={cryptosData} />}
+      {/* {tempObject && <Converter tempObject={tempObject} />} */}
+      {d && <Converter tempObject={d} />}
+      {/* {cryptosData && <MainTable data={cryptosData} />} */}
+      {t && <MainTable data={t} />}
     </div>
   );
 }
 
-export const getServerSideProps = async () => {
-  console.log("SSR HAPPENING");
-  const url =
-    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+// export const getServerSideProps = async () => {
+//   const url =
+//     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
 
-  const query = "?limit=80";
-  try {
-    const res = await fetch(url + query, {
-      headers: { "X-CMC_PRO_API_KEY": process.env.API_KEY },
-    });
-    const json = await res.json();
-    const data = json.data;
-    const [cryptosData, tempObject] = parseData(data, 40);
-    console.log("Console logging data");
-    console.log(cryptosData);
-    return {
-      props: { cryptosData, tempObject },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {},
-    };
-  }
-};
+//   const query = "?limit=80";
+//   try {
+//     const res = await fetch(url + query, {
+//       headers: { "X-CMC_PRO_API_KEY": process.env.API_KEY },
+//     });
+//     const json = await res.json();
+//     const data = json.data;
+//     const [cryptosData, tempObject] = parseData(data, 40);
+//     return {
+//       props: { cryptosData, tempObject },
+//     };
+//   } catch (error) {
+//     console.log(error);
+//     return {
+//       props: {},
+//     };
+//   }
+// };

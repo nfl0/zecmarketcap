@@ -74,12 +74,10 @@ export default function Converter({ tempObject }: MainTableProps) {
 
   function fromCurrencyHandleChange(e) {
     setFromCurrency(e.target.value);
-    console.log(fromCurrency);
   }
 
   function toCurrencyHandleChange(e) {
     setToCurrency(e.target.value);
-    console.log(fromCurrency);
   }
 
   function handleButtonClick() {

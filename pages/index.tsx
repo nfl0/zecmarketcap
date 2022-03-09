@@ -70,13 +70,8 @@ export default function Home({ cryptosData, tempObject }) {
 
   return (
     <div style={{ backgroundColor: "#ffffff" }}>
-      {cryptosData && tempObject && (
-        <div>
-          <Converter tempObject={tempObject} />
-          <MainTable data={cryptosData} />
-          {/* <Subscribe /> */}
-        </div>
-      )}
+      {tempObject && <Converter tempObject={tempObject} />}
+      {cryptosData && <MainTable data={cryptosData} />}
     </div>
   );
 }

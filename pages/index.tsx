@@ -92,8 +92,9 @@ export const getServerSideProps = async () => {
     });
     const json = await res.json();
     const data = json.data;
-
     const [cryptosData, tempObject] = parseData(data, 40);
+    console.log("Console logging data");
+    console.log(cryptosData);
     return {
       props: { cryptosData, tempObject },
     };

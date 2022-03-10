@@ -8,7 +8,7 @@ interface MainTableProps {
 }
 export default function MainTable({ data }: MainTableProps) {
   if (typeof window === "undefined") {
-    return <></>;
+    return 500;
   }
 
   const width = window.innerWidth;

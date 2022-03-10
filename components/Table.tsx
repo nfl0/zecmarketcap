@@ -1,76 +1,77 @@
 /* eslint-disable react/jsx-key */
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import { Box, chakra, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useSortBy, useTable } from "react-table";
-
 interface MainTableProps {
   data: any[];
 }
 export default function MainTable({ data }: MainTableProps) {
-  if (typeof window === "undefined") {
-    return 500;
+  const [width, setWidth] = useState<number>();
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
   }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
 
-  const width = window.innerWidth;
   const breakpoint = 620;
-  const columns =
-    width >= breakpoint
-      ? [
-          {
-            Header: "#",
-            accessor: "id",
-          },
-          {
-            Header: "name",
-            accessor: "name",
-          },
-          {
-            Header: "price (ZEC)",
-            accessor: "priceZcash",
-            isNumeric: true,
-          },
-          {
-            Header: "price (USD)",
-            accessor: "priceUSD",
-            isNumeric: true,
-          },
+  const isMobile = width <= breakpoint;
+  const columns = isMobile
+    ? [
+        {
+          Header: "#",
+          accessor: "id",
+        },
+        {
+          Header: "name",
+          accessor: "name",
+        },
+        {
+          Header: "price (ZEC)",
+          accessor: "priceZcash",
+          isNumeric: true,
+        },
+        {
+          Header: "price (USD)",
+          accessor: "priceUSD",
+          isNumeric: true,
+        },
 
-          {
-            Header: "% 1h (ZEC)",
-            accessor: "percentChange1hZEC",
-            isNumeric: true,
-          },
-          {
-            Header: "% 24h (ZEC)",
-            accessor: "percentChange24hZEC",
-            isNumeric: true,
-          },
-          {
-            Header: "market cap (ZEC)",
-            accessor: "marketCapZEC",
-            isNumeric: true,
-          },
-        ]
-      : [
-          {
-            Header: "#",
-            accessor: "id",
-          },
-          {
-            Header: "name",
-            accessor: "name",
-          },
-          {
-            Header: "price (ZEC)",
-            accessor: "priceZcash",
-            isNumeric: true,
-          },
-          // {
-          //   Header: "market cap (ZEC)",
-          //   accessor: "marketCapZEC",
-          //   isNumeric: true,
-          // },
-        ];
+        {
+          Header: "% 1h (ZEC)",
+          accessor: "percentChange1hZEC",
+          isNumeric: true,
+        },
+        {
+          Header: "% 24h (ZEC)",
+          accessor: "percentChange24hZEC",
+          isNumeric: true,
+        },
+        {
+          Header: "market cap (ZEC)",
+          accessor: "marketCapZEC",
+          isNumeric: true,
+        },
+      ]
+    : [
+        {
+          Header: "#",
+          accessor: "id",
+        },
+        {
+          Header: "name",
+          accessor: "name",
+        },
+        {
+          Header: "price (ZEC)",
+          accessor: "priceZcash",
+          isNumeric: true,
+        },
+      ];
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data }, useSortBy);

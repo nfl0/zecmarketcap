@@ -25,7 +25,7 @@ export default function MainTable({ data }: MainTableProps) {
             accessor: "name",
           },
           {
-            Header: "price (Zcash)",
+            Header: "price (ZEC)",
             accessor: "priceZcash",
             isNumeric: true,
           },
@@ -61,10 +61,15 @@ export default function MainTable({ data }: MainTableProps) {
             accessor: "name",
           },
           {
-            Header: "price (Zcash)",
+            Header: "price (ZEC)",
             accessor: "priceZcash",
             isNumeric: true,
           },
+          // {
+          //   Header: "market cap (ZEC)",
+          //   accessor: "marketCapZEC",
+          //   isNumeric: true,
+          // },
         ];
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

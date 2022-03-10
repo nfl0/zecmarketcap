@@ -1,6 +1,7 @@
 // return convereted data
 import { RepeatIcon } from "@chakra-ui/icons";
 import {
+  Box,
   chakra,
   Container,
   Flex,
@@ -91,6 +92,7 @@ export default function Converter({ tempObject }: MainTableProps) {
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
+      marginBottom={{ base: 0, sm: 12 }}
     >
       <Container
         maxW={"4xl"}
@@ -132,12 +134,13 @@ export default function Converter({ tempObject }: MainTableProps) {
             </Select>
           </FormControl>
 
-          <FormControl w={{ base: "10%" }}>
-            <div style={{ height: "37px", width: "1px" }} />
-            <ConvertButton label={"convert"}>
-              <RepeatIcon color="blue.500" onClick={handleButtonClick} />
-            </ConvertButton>
-          </FormControl>
+          <Box marginTop={{ base: 0 }} display="flex">
+            <FormControl w={{ base: "10%" }}>
+              <ConvertButton label={"convert"}>
+                <RepeatIcon color="blue.500" onClick={handleButtonClick} />
+              </ConvertButton>
+            </FormControl>
+          </Box>
 
           <FormControl w={{ base: "100%" }}>
             <FormLabel htmlFor="to">To</FormLabel>

@@ -38,7 +38,7 @@ const ConvertButton = ({
       justifyContent={"center"}
       transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
+        bg: "blackAlpha.100",
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -52,7 +52,7 @@ interface MainTableProps {
 }
 
 export default function Converter({ tempObject }: MainTableProps) {
-  const [amount, setAmount] = useState<any>(1);
+  const [amount, setAmount] = useState(1);
   const [fromCurrency, setFromCurrency] = useState("Zcash");
   const [toCurrency, setToCurrency] = useState("USD");
 
@@ -86,6 +86,7 @@ export default function Converter({ tempObject }: MainTableProps) {
     setFromCurrency(toCurrency);
     setToCurrency(temp);
   }
+
   return (
     <Flex
       minH={"40vh"}
@@ -116,7 +117,7 @@ export default function Converter({ tempObject }: MainTableProps) {
               <Input
                 placeholder="1"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setAmount(e.target.value)
+                  setAmount(parseInt(e.target.value))
                 }
               />
             </InputGroup>

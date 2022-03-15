@@ -27,7 +27,6 @@ const ConvertButton = ({
 }) => {
   return (
     <chakra.button
-      // bg={"blackAlpha.100"}
       border={"1px solid lightgray"}
       rounded={"full"}
       w={8}
@@ -47,6 +46,7 @@ const ConvertButton = ({
     </chakra.button>
   );
 };
+
 interface MainTableProps {
   tempObject: object;
 }
@@ -134,7 +134,7 @@ export default function Converter({ tempObject }: MainTableProps) {
             </Select>
           </FormControl>
 
-          <Box marginTop={{ base: 0 }} display="flex">
+          <Box display="flex" alignItems={"flex-end"}>
             <FormControl w={{ base: "10%" }}>
               <ConvertButton label={"convert"}>
                 <RepeatIcon color="blue.500" onClick={handleButtonClick} />
@@ -163,9 +163,7 @@ export default function Converter({ tempObject }: MainTableProps) {
           textAlign={"center"}
           color={error ? "red.500" : "gray.500"}
         >
-          {error
-            ? "Oh no an error occured! 😢 Please try again later."
-            : "Using midmarket rates ✌️"}
+          Using midmarket rates ✌️
         </Text>
       </Container>
     </Flex>

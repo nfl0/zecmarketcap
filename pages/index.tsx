@@ -1,7 +1,9 @@
 import { roundTo } from "round-to";
 import Converter from "../components/Converter";
 import { d, t } from "../components/mockData";
+import Subscribe from "../components/Subscribe";
 import MainTable from "../components/Table";
+
 const parseData = (data: any, limit: number) => {
   let temp = [];
   let tempObject = {};
@@ -73,6 +75,7 @@ export default function Home() {
       {d && <Converter tempObject={d} />}
       {/* {cryptosData && <MainTable data={cryptosData} />} */}
       {t && <MainTable data={t} />}
+      <Subscribe />
     </div>
   );
 }

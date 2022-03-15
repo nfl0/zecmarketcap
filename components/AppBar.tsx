@@ -62,17 +62,6 @@ export default function WithSubnavigation() {
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-          {/* <Link href="http://ZcashU.org" isexternal="true">
-            ZcashU.org
-          </Link> */}
-        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>

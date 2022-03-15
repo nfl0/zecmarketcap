@@ -20,7 +20,7 @@ export default function MainTable({ data }: MainTableProps) {
 
   const breakpoint = 620;
   const isMobile = width <= breakpoint;
-  const columns = isMobile
+  const columns = true
     ? [
         {
           Header: "#",

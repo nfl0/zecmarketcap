@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
 import { roundTo } from "round-to";
 import Converter from "../components/Converter";
-import { d } from "../components/mockData";
-import MainTable from "../components/Table";
+import { d, t } from "../components/mockData";
+// import MainTable from "../components/Table";
+import TableContainer from "../components/TableContainer";
+
 const parseData = (data: any, limit: number) => {
   let temp = [];
   let tempObject = {};
@@ -62,70 +63,39 @@ const parseData = (data: any, limit: number) => {
   return [temp, tempObject];
 };
 
-const fetchData = async (data: any, limit: number) => {
-  const url =
-    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
-
-  const query = "?limit=80";
-  try {
-    const res = await fetch(url + query, {
-      headers: { "X-CMC_PRO_API_KEY": process.env.API_KEY },
-    });
-    const json = await res.json();
-    const data = json.data;
-    const [cryptosData, zcashData] = parseData(data, 40);
-    console.log(" printed", cryptosData);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export default function Home({ cryptosData }) {
-  const [cryptosData2, setCryptosData] = useState([]);
-  useEffect(() => {
-    const url =
-      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
-
-    const query = "?limit=80";
-
-    fetch(url + query, {
-      headers: { "X-CMC_PRO_API_KEY": process.env.API_KEY },
-    })
-      .then((res) => res.json())
-      .then((data) => setCryptosData(data.data));
-
-    setCryptosData([]);
-  }, []);
+export default function Home({}) {
   return (
     <div style={{ backgroundColor: "#ffffff" }}>
       {/* {tempObject && <Converter tempObject={tempObject} />} */}
       {d && <Converter tempObject={d} />}
-      {cryptosData && <MainTable data={cryptosData} />}
+      {/* {cryptosData && <MainTable data={cryptosData} />} */}
       {/* {t && <MainTable data={t} />} */}
+      {t && <TableContainer data={t} />}
     </div>
   );
 }
 
-export const getServerSideProps = async () => {
-  const url =
-    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+// export async function getServerSideProps() {
+//   console.log("serverside rendering");
+//   const url =
+//     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
 
-  const query = "?limit=80";
-  try {
-    const res = await fetch(url + query, {
-      method: "GET",
-      headers: { "X-CMC_PRO_API_KEY": process.env.API_KEY },
-    });
-    const json = await res.json();
-    const data = json.data;
-    const [cryptosData, tempObject] = parseData(data, 40);
-    return {
-      props: { cryptosData },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {},
-    };
-  }
-};
+//   const query = "?limit=80";
+//   try {
+//     const res = await fetch(url + query, {
+//       method: "GET",
+//       headers: { "X-CMC_PRO_API_KEY": process.env.API_KEY },
+//     });
+//     const json = await res.json();
+//     const data = json.data;
+//     const [cryptosData, tempObject] = parseData(data, 40);
+//     return {
+//       props: { cryptosData },
+//     };
+//   } catch (error) {
+//     console.log(error);
+//     return {
+//       props: {},
+//     };
+//   }
+// }

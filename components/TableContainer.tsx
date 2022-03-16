@@ -13,7 +13,6 @@ export default function TableContainer({ data }: TableContainerProps) {
     setWidth(window.innerWidth);
   }
   useEffect(() => {
-    console.log(window.innerWidth);
     setWidth(window.innerWidth);
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {

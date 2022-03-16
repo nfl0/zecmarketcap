@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Flex,
-  Link,
   SimpleGrid,
   Stack,
   Text,
@@ -66,13 +65,13 @@ export default function LargeWithLogoLeft() {
               © 2022 ZECMarketCap. All rights reserved
             </Text>
           </Stack>
-          <Stack align={"flex-start"}>
+          {/* <Stack align={"flex-start"}>
             <ListHeader>Join Us</ListHeader>
             <Link href={"https://discord.gg/aBNyfhWQ74"}>Discord</Link>
             <Link href={"https://twitter.com/zcashug?lang=en"}>Twitter</Link>
             <Link href={"https://zecpages.com/zcashu"}>Donate</Link>
-          </Stack>
-          <Stack align={"flex-start"}>
+          </Stack> */}
+          {/* <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
             <Link
               href={"https://hackmd.io/@MDZNyyyhQH-3u6jZmLYQlQ/r1isXiaeq#about"}
@@ -88,8 +87,8 @@ export default function LargeWithLogoLeft() {
             </Link>
             <Link href={"https://www.z2z.to/ZcashU"}>Contact</Link>
             <Link href={"http://zecforum.com/"}>Forums</Link>
-          </Stack>
-          <Stack align={"flex-start"}>
+          </Stack> */}
+          {/* <Stack align={"flex-start"}>
             <ListHeader>Others</ListHeader>
             <Link href={"https://www.zecwallet.co/app.html"}>Zecwallet</Link>
             <Link href={"https://zecpages.com/z/all"}>ZECpages</Link>
@@ -97,8 +96,8 @@ export default function LargeWithLogoLeft() {
               Zcash Gear
             </Link>
             <Link href="http://ZcashU.org">ZcashU.org</Link>
-            {/* <Link href={"#"}>Privacy Policy</Link> */}
-          </Stack>
+            <Link href={"#"}>Privacy Policy</Link>
+          </Stack> */}
         </SimpleGrid>
       </Container>
     </Box>

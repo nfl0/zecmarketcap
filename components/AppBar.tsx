@@ -53,8 +53,8 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex
           flex={{ base: 1 }}
-          justify={{ base: "center", md: "start" }}
-          display={{ base: "none", md: "flex" }}
+          // justify={{ base: "center", md: "start" }}
+          display={{ base: "flex", md: "flex" }}
         >
           <Image
             src={"/zcashIcon.png"}

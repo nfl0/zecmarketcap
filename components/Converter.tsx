@@ -164,8 +164,8 @@ export default function Converter({ tempObject }: MainTableProps) {
           textAlign={"center"}
           color={error ? "red.500" : "gray.500"}
         >
-          We are getting more traffic than expected! API will refresh in 24
-          hours.
+          We are getting more traffic than expected! API will refresh in 10
+          minutes.
         </Text>
       </Container>
     </Flex>

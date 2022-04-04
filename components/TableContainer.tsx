@@ -24,6 +24,5 @@ export default function TableContainer({ data }: TableContainerProps) {
 
   return (
     <>{isMobile ? <MobileTable data={data} /> : <DesktopTable data={data} />}</>
-    // <>{isMobile ? <MobileTable data={data} /> : <DesktopTable data={data} />}</>
   );
 }

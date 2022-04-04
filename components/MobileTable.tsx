@@ -19,8 +19,8 @@ export default function MainTable({ data }: MainTableProps) {
         accessor: "name",
       },
       {
-        Header: "price (USD)",
-        accessor: "priceUSD",
+        Header: "price (Zcash)",
+        accessor: "priceZcash",
         isNumeric: true,
       },
     ],

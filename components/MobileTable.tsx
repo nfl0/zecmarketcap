@@ -10,17 +10,17 @@ interface MainTableProps {
 export default function MainTable({ data }: MainTableProps) {
   const columns = useMemo(
     () => [
-      // {
-      //   Header: "#",
-      //   accessor: "id",
-      // },
+      {
+        Header: "#",
+        accessor: "id",
+      },
       {
         Header: "name",
         accessor: "name",
       },
       {
-        Header: "market cap (ZEC)",
-        accessor: "marketCapZEC",
+        Header: "price (USD)",
+        accessor: "priceUSD",
         isNumeric: true,
       },
     ],

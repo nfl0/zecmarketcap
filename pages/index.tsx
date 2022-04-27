@@ -27,11 +27,11 @@ const parseconverterData = (data) => {
         percentChange24hZEC: 1,
         marketCapZEC: roundTo(
           d.quote.USD.market_cap / zcashPrice,
-          2
+          4
         ).toLocaleString(),
       });
       tempObject["Zcash"] = {
-        priceUSD: roundTo(d.quote.USD.price, 2),
+        priceUSD: roundTo(d.quote.USD.price, 4),
       };
     }
   });
@@ -44,7 +44,7 @@ const parseconverterData = (data) => {
       id: index + 1,
       name: d.name,
       priceUSD: roundTo(d.quote.USD.price, 2).toLocaleString(),
-      priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2).toLocaleString(),
+      priceZcash: roundTo(d.quote.USD.price / zcashPrice, 4).toLocaleString(),
       percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
       percentChange1hZEC: roundTo(
         d.quote.USD.percent_change_1h / temp[0].percentChange1hUSD,
@@ -64,67 +64,6 @@ const parseconverterData = (data) => {
   });
 
   return [tempObject, temp];
-};
-
-const parseData = (data: any, limit: number) => {
-  let temp = [];
-  let tempObject = {};
-  let zcashData = {};
-  let zcashPrice = 1;
-
-  // extract zcash info first
-  data.map((d) => {
-    if (d.name === "Zcash") {
-      zcashData = d;
-      zcashPrice = d.quote.USD.price;
-      temp.push({
-        id: 0,
-        name: d.name,
-        priceUSD: roundTo(d.quote.USD.price, 2).toLocaleString(),
-        priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2).toLocaleString(),
-        percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
-        percentChange24hUSD: roundTo(d.quote.USD.percent_change_24h, 2),
-        percentChange1hZEC: 1,
-        percentChange24hZEC: 1,
-        marketCapZEC: roundTo(
-          d.quote.USD.market_cap / zcashPrice,
-          2
-        ).toLocaleString(),
-      });
-      tempObject[d.name] = {
-        priceUSD: roundTo(d.quote.USD.price, 2),
-      };
-    }
-  });
-
-  data.slice(0, limit).map((d, index) => {
-    tempObject[d.name] = {
-      priceUSD: roundTo(d.quote.USD.price, 2),
-    };
-
-    temp.push({
-      id: index + 1,
-      name: d.name,
-      priceUSD: roundTo(d.quote.USD.price, 2).toLocaleString(),
-      priceZcash: roundTo(d.quote.USD.price / zcashPrice, 2).toLocaleString(),
-      percentChange1hUSD: roundTo(d.quote.USD.percent_change_1h, 2),
-      percentChange1hZEC: roundTo(
-        d.quote.USD.percent_change_1h / temp[0].percentChange1hUSD,
-        2
-      ),
-      percentChange24hUSD: roundTo(d.quote.USD.percent_change_24h, 2),
-      percentChange24hZEC: roundTo(
-        d.quote.USD.percent_change_24h / temp[0].percentChange24hUSD,
-        2
-      ),
-      // market Cap
-      marketCapZEC: roundTo(
-        d.quote.USD.market_cap / zcashPrice,
-        2
-      ).toLocaleString(),
-    });
-  });
-  return [temp, tempObject];
 };
 
 export default function Home({}) {
